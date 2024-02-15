@@ -1,7 +1,8 @@
 CUDA 8.0 CUDNN 6.0 https://developer.nvidia.com/rdp/cudnn-archive
 
-StaticOwl Notes:
-For running this code: apart from installing all the dependencies provided, you need to install CUDA 8.0, CUDA 9.0, CUDNN 6 and CUDNN 7. The reason is cuda0 gives you libcublas.so.9 in the LD_LIBRARY_PATH, which is required for tensorflow_gpu 1.8. And for deepspeech, you need CUDA 8.0 as your main runner. So keep cuda8.0 as your main version, and only access the libraries of cuda 9.0. This is the basic idea before going through the code and running it.
+#StaticOwl Notes:
+>For running this code: 
+>>Apart from installing all the dependencies provided, you need to install CUDA 8.0, CUDA 9.0, CUDNN 6 and CUDNN 7. The reason is cuda0 gives you libcublas.so.9 in the LD_LIBRARY_PATH, which is required for tensorflow_gpu 1.8. And for deepspeech, you need CUDA 8.0 as your main runner. So keep cuda8.0 as your main version, and only access the libraries of cuda 9.0. This is the basic idea before going through the code and running it.
 
 This is the code corresponding to the paper
 "Audio Adversarial Examples: Targeted Attacks on Speech-to-Text"
