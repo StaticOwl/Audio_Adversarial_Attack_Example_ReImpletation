@@ -19,7 +19,8 @@ Instructions for basic use:
 
 1. Install the dependencies
 
-pip3 install numpy==1.14.0 scipy==1.0.0 pydub protobuf==3.4.0 tensorflow-gpu==1.8.0 pandas=0.22.0 python_speech_features
+pip3 install numpy==1.14.0 scipy==1.0.0 pydub==0.23.0 protobuf==3.5.1 pandas==0.22.0 python_speech_features==0.6
+pip3 install tensorflow-gpu==1.8.0
 
 2. Clone the Mozilla DeepSpeech repository into a folder called DeepSpeech:
 

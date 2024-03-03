@@ -60,7 +60,6 @@ from tf_logits import get_logits
 toks = " abcdefghijklmnopqrstuvwxyz'-"
 
 def convert_mp3(new, lengths):
-    import pydub
     wav.write("/tmp/load.wav", 16000,
               np.array(np.clip(np.round(new[0][:lengths[0]]),
                                -2**15, 2**15-1),dtype=np.int16))
