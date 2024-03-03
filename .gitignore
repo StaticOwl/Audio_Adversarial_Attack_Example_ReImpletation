@@ -1,3 +1,7 @@
 orig_impl/DeepSpeech/
 orig_impl/models
 orig_impl/deepspeech-0.1.0-models.tar.gz
+venv/
+.vscode/
+__pycache__/
+orig_impl/adversarial.wav
