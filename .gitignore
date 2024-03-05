@@ -5,3 +5,6 @@ venv/
 .vscode/
 __pycache__/
 orig_impl/adversarial.wav
+DeepSpeech/
+models/
+deepspeech-0.1.0-models.tar.gz
