@@ -49,4 +49,3 @@ Will update the readme as I go through more.
 TODO:
 
 Check do we have to RM everything, then install deepspeech and build the checkpoints from again?
-tomorrow have to write full instructions as well as have to tidy up the code, while understanding the basic usage once again.
