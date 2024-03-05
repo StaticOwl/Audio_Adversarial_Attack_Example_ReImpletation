@@ -23,7 +23,6 @@ or you can run this if you don't have gpu or CUDA installed:
 ```
 
 To run the attack, run the following commands:
-
 ```bash
 git clone
 cd Audio_Adversarial_Attack_Example_ReImpletation
