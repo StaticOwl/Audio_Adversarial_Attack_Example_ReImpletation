@@ -8,7 +8,7 @@ Instruction for Original Implementation can be found [here](orig_impl/readme.md)
 
 I have worked towards a somewhat better implementation.
 
-This project runs on CUDA 8.0, CUDNN 6 and Python3.5. It is advised to use a virtual environment for running this code (preferrably conda).
+This project runs on CUDA 8.0, CUDNN 6 and Python3.5. It is advised to use a virtual environment for running this code (preferrably conda). \
 CUDA 8.0 -> https://developer.nvidia.com/cuda-toolkit-archive (Use the run file to install it, and then install the patch for 8.0.61) \
 CUDNN 6 -> https://developer.nvidia.com/rdp/cudnn-archive
 
