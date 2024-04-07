@@ -1,5 +1,0 @@
-The original implementation is working. The main problem was setting up cuda environment, as there was no documentation for that in the original code. Hence, had to search for the version that is compatible with. Turns out, Deepspeech v0.1.1 that the author worked with is actually compatible with cuda 8 and cudnn 6, however, these versions are deprecated and finding them was pretty hard. After setting this up, I found one more flaw in the documentation, one major one that is. The author have claimed that this implementation doesn't work without tensorflow-gpu 1.8.0. However, deepspeech-gpu v0.1.1. doesn't support anything above version 1.4.0. Hence, I had to downgrade the tensorflow-gpu to 1.4.0. After that, the code worked like a charm. 
-
-Overall performance of the original code [standard input: 3 sec wav of db 89.5]:
-On CPU: 2.5 hours 
-on GPU: 20 minutes
