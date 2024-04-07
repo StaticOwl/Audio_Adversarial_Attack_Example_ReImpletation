@@ -1,2 +1,2 @@
-tensorflow==1.8.0
-deepspeech==0.1.1
+tensorflow-gpu==1.4.0
+deepspeech-gpu==0.1.1

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Function to install DeepSpeech and its dependencies
+
 help() {
     echo "Usage: $0 <install|run>"
 }
@@ -40,6 +41,9 @@ install_deepspeech() {
 # Function to run the attack script
 run_attack() {
     local adversarial_input=""
+    local type="$1"
+    shift
+    echo "Type: $type"
 
     # Look for --out in the command line arguments
     for (( i=1; i<=$#; i++ )); do
@@ -48,20 +52,24 @@ run_attack() {
             break
         fi
     done
-    if [ -z "$adversarial_input" ]; then
+    if [[ -z "$adversarial_input" && $type = "single" ]]; then
         echo "Error: Output File not found."
         exit 1
     fi
     echo "Step 1: Converting the .pb to a TensorFlow checkpoint file..."
     python3 make_checkpoint.py || { echo "Error: Failed to convert .pb to TensorFlow checkpoint file"; exit 1; }
-
+    
     echo "Step 2: Generating adversarial examples..."
-    python3 attack.py "$@" || { echo "Error: Failed to generate adversarial examples"; exit 1; }
+    if [[ $type = "multi" ]]; then
+        python3 multi.py "$@" || { echo "Error: Failed to generate adversarial examples"; exit 1; }
+    else
+        python3 attack.py "$@" || { echo "Error: Failed to generate adversarial examples"; exit 1; }
 
-    echo "Attack completed successfully."
+        echo "Attack completed successfully."
 
-    echo "Step 3: Running the evaluation script..."
-    deepspeech models/output_graph.pb $adversarial_input models/alphabet.txt
+        echo "Step 3: Running the evaluation script..."
+        deepspeech models/output_graph.pb $adversarial_input models/alphabet.txt
+    fi
 
 }
 

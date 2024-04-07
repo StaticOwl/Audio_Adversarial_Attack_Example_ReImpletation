@@ -4,17 +4,19 @@
 ##
 ## This program is licenced under the BSD 2-Clause licence,
 ## contained in the LICENCE file in this directory.
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 from tensorflow.core.framework.graph_pb2 import *
 import numpy as np
 import tensorflow as tf
 
-if tf.__version__ != "1.8.0":
+if tf.__version__ != "1.4.0":
     print("-"*80)
     print("-"*80)
     print("WARNING")
     print("It looks like you have the wrong version of DeepSpeech installed.")
-    print("Please ensure you are using TensorFlow 1.8.0")
+    print("Please ensure you are using TensorFlow 1.4.0")
     print("Everything may or may not work otherwise.")
     print("-"*80)
     print("-"*80)
@@ -63,11 +65,17 @@ with tf.Graph().as_default() as graph:
     # Now let's dump these weights into a new copy of the network.
     with tf.Session(graph=graph) as sess:
         # Sample sentetnce, to make sure we've done it right
-        mfcc = audiofile_to_input_vector("sample.wav", 26, 9)
+        mfcc = audiofile_to_input_vector("logit_setter.wav", 26, 9)
 
         # Okay, so this is ugly again.
         # We just want it to not crash.
         tf.app.flags.FLAGS.alphabet_config_path = "DeepSpeech/data/alphabet.txt"
+        tf.app.flags.FLAGS.lm_binary_path = "DeepSpeech/data/lm.binary"
+
+        # Some more ugly monkeypatching (this time to make it not crash)[StaticOwl]
+        tf.app.flags.FLAGS.checkpoint_dir = "DeepSpeech/data/checkpoint"
+        tf.app.flags.FLAGS.summary_dir = "DeepSpeech/data/summary"
+        tf.app.flags.FLAGS.show_progressbar = True
         # Make it stop complaining
         tf.app.flags.FLAGS.decoder_library_path = "."
         DeepSpeech.initialize_globals()
