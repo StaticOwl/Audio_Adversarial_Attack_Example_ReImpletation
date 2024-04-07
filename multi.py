@@ -31,7 +31,7 @@ with open('target_setter.json', 'r') as f:
         else:
             print("Attack successful on {}! Evaluating....".format(input_file))
             print("Original Audio Deepspeech output")
-            args1 = ["deepspeech", "models/output_graph.pb", input_file, "models/alphabet.txt"]
+            args1 = ["deepspeech", "models/output_graph.pb", "inputs/"+input_file, "models/alphabet.txt"]
             result = subprocess.run(args1)
                 
             print("Adversarial Audio Deepspeech output")
